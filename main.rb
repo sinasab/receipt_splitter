@@ -8,6 +8,8 @@ input formatted like this, without quotes:
 
 This input would mean "split an item that costs 10.99 evenly between s, z, and k".
 
+Note, "10.99 sina zack kevin \n" would also work.
+
 enter "quit\n" or "\n" to quit
 
 costs is hash of costs per person, where costs[x]=(how much x should pay)
@@ -53,7 +55,7 @@ end
 #start of main
 greeting="Enter items in the following format (without the quotes, and where \"n\" is a newline): \"10.99 s z k \\n\"\nThat would be a 10.99 item split between s, z, and k. Enter \"quit\\n\" or \"\\n\" to quit.\n\nPress enter to start.\n"
 start(greeting)
-costs=Hash.new(0);
+costs=Hash.new(0)
 loop do
     tokens=getItem()
     break if(tokens.length<2)
