@@ -9,6 +9,12 @@ where \n is the enter key.
 
 enter"quit" to quit
 
+costs is hash of costs per person, where costs[x]=(how much x should pay)
+
+tokens is the input, split at spaces, and would look something like this: [10.99, s, z, k] where an item that costs 10.99 should be split between s, z, and k.
+
+to split something unevenly, eg. 1/3 for n, 2/3 for s, input "10.99 s s n".
+
 =end
 
 #prints costs from a hash
@@ -23,17 +29,20 @@ def printCosts(costs)
     return total/100
 end
 
+#adds costs from tokens to appripriate entries in hash
 def addCost(tokens, costs)
     for i in 1...tokens.length
         costs[tokens[i]]+=(tokens[0].to_f)*100/(tokens.length-1)
     end
 end
 
+#prints greeting and waits for user to hit enter
 def start(greeting)
     puts greeting
     gets.chomp
 end
 
+#gets a line of input from console, returns token array
 def getItem()
     print "\nEnter a new item: "
     s=gets.chomp
