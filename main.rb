@@ -53,7 +53,7 @@ def getItem()
 end
 
 #start of main
-greeting="Enter items in the following format (without the quotes, and where \"n\" is a newline): \"10.99 s z k \\n\"\nThat would be a 10.99 item split between s, z, and k. Enter \"quit\\n\" or \"\\n\" to quit.\n\nPress enter to start.\n"
+greeting="Enter items in the following format (without the quotes, and where \"\\n\" is a newline): \"10.99 s z k \\n\"\nThat would be a 10.99 item split between s, z, and k. Enter \"quit\\n\" or \"\\n\" to quit.\n\nPress enter to start.\n"
 start(greeting)
 costs=Hash.new(0)
 loop do
