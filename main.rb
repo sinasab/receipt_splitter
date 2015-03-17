@@ -2,13 +2,8 @@
 
 small script to find prices of everyone's groceries when splitting up a receipt
 
-input formatted like this, without quotes:
-
-"10.99 s z k \n"
-
-This input would mean "split an item that costs 10.99 evenly between s, z, and k".
-
-Note, "10.99 sina zack kevin \n" would also work.
+input formatted like this, without quotes: "10.99 s z k \n" (where "\n" reperesents newline/enter)
+This input would mean "split an item that costs 10.99 evenly between s, z, and k". Note, "10.99 sina zack kevin \n" would also work.
 
 enter "quit\n" or "\n" to quit
 
@@ -16,7 +11,7 @@ costs is hash of costs per person, where costs[x]=(how much x should pay)
 
 tokens is the input, split at spaces, and would look something like this: [10.99, s, z, k] where an item that costs 10.99 should be split between s, z, and k.
 
-to split something unevenly, eg. 1/3 for n, 2/3 for s, input "10.99 s s n".
+to split something unevenly, eg. 1/3 for n, 2/3 for s, you could input "10.99 s s n \n".
 
 =end
 
@@ -33,6 +28,7 @@ def printCosts(costs)
 end
 
 #adds costs from tokens to appripriate entries in hash
+#also converts dollars.cents to integer amount of cents, rather than keeping it as a float. This helps avoid potential math errors that could arise when using floats.
 def addCost(tokens, costs)
     for i in 1...tokens.length
         costs[tokens[i]]+=(tokens[0].to_f)*100/(tokens.length-1)
