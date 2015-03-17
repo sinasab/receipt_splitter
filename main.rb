@@ -1,13 +1,14 @@
 =begin
 
-small script to find prices of everyone's groceries
+small script to find prices of everyone's groceries when splitting up a receipt
 
 input formatted like this, without quotes:
 
 "10.99 s z k \n"
-where \n is the enter key.
 
-enter"quit" to quit
+This input would mean "split an item that costs 10.99 evenly between s, z, and k".
+
+enter "quit\n" or "\n" to quit
 
 costs is hash of costs per person, where costs[x]=(how much x should pay)
 
@@ -49,8 +50,8 @@ def getItem()
     return s.split
 end
 
+#start of main
 greeting="Enter items in the following format (without the quotes, and where \"n\" is a newline): \"10.99 s z k \\n\"\nThat would be a 10.99 item split between s, z, and k. Enter \"quit\\n\" or \"\\n\" to quit.\n\nPress enter to start.\n"
-
 start(greeting)
 costs=Hash.new(0);
 loop do
