@@ -38,7 +38,7 @@ end
 #prints greeting and waits for user to hit enter
 def start(greeting)
     puts greeting
-    gets.chomp
+    gets
 end
 
 #gets a line of input from console, returns token array
